@@ -1,0 +1,27 @@
+# Build artifacts
+/target/
+**/target/
+
+# Cargo lock file (optional - uncomment if you want to commit dependencies)
+# Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor configs (optional)
+/.env
+/.env.*
+
+# Local dotm data (this is managed by dotm, not committed)
+.local/
+
+# Backup files created by dotm
+*.bak

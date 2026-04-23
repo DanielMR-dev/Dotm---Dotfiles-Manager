@@ -1,0 +1,49 @@
+# dotm configuration — copia esto a ~/.config/dotm/config.toml
+
+# ─── Fuente ───────────────────────────────────────────────────────────────────
+
+[source]
+type   = "github"
+url    = "https://github.com/DanielMR-dev/dotfiles"
+branch = "main"
+
+# Para usar carpeta local en su lugar, comenta lo de arriba y descomenta:
+# [source]
+# type = "local"
+# path = "~/dotfiles"
+
+# ─── Mappings ────────────────────────────────────────────────────────────────
+# Formato: "ruta/en/tu/repo" = "~/.destino/en/el/sistema"
+
+[mappings]
+# Shell
+"zsh/.zshrc"           = "~/.zshrc"
+"zsh/.zsh_aliases"     = "~/.zsh_aliases"
+"zsh/.zprofile"        = "~/.zprofile"
+
+# Hyprland (OmarchyOS)
+"hypr/hyprland.conf"   = "~/.config/hypr/hyprland.conf"
+"hypr/hyprpaper.conf"  = "~/.config/hypr/hyprpaper.conf"
+"hypr/hyprlock.conf"   = "~/.config/hypr/hyprlock.conf"
+
+# Terminal
+"ghostty/config"       = "~/.config/ghostty/config"
+
+# Editor
+"nvim/"                = "~/.config/nvim/"
+
+# Git
+"git/.gitconfig"       = "~/.gitconfig"
+"git/.gitignore_global"= "~/.gitignore_global"
+
+# Herramientas
+"starship/starship.toml" = "~/.config/starship.toml"
+"zoxide/.zoxide"          = "~/.zoxide"
+
+# ─── Opciones ────────────────────────────────────────────────────────────────
+
+[options]
+backup  = true       # Hace backup de archivos existentes antes de sobreescribir
+method  = "symlink"  # "symlink" o "copy"
+dry_run = false      # true = simula sin escribir nada al disco
+# backup_dir = "~/.local/share/dotm/backups"  # Directorio de backups (opcional)

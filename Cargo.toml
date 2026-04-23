@@ -1,0 +1,51 @@
+[package]
+name        = "dotm"
+version     = "0.1.0"
+edition     = "2021"
+authors     = ["Daniel MR <tu@email.com>"]
+description = "A fast dotfiles manager for Arch-based Linux distributions"
+homepage    = "https://github.com/DanielMR-dev/dotm"
+repository  = "https://github.com/DanielMR-dev/dotm"
+license     = "MIT"
+keywords    = ["dotfiles", "cli", "linux", "arch", "configuration"]
+categories  = ["command-line-utilities"]
+readme      = "README.md"
+
+[[bin]]
+name = "dotm"
+path = "src/main.rs"
+
+[dependencies]
+# CLI
+clap = { version = "4", features = ["derive", "color"] }
+
+# Serialización / config
+serde       = { version = "1", features = ["derive"] }
+toml        = "0.8"
+
+# Errores
+thiserror = "1"
+anyhow    = "1"
+
+# Filesystem helpers
+dirs = "5"
+
+# Output con colores y progreso
+colored    = "2"
+indicatif  = "0.17"
+
+# Git (para fuente GitHub)
+git2 = { version = "0.18", optional = true }
+
+# HTTP (para GitHub API, opcional)
+reqwest = { version = "0.11", features = ["blocking", "json"], optional = true }
+
+[features]
+default  = ["git", "github-api"]
+git      = ["dep:git2"]
+github-api = ["dep:reqwest"]
+
+[profile.release]
+opt-level = 3
+lto       = true
+strip     = true
